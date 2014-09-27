@@ -1,0 +1,5 @@
+http://ucrel.lancs.ac.uk/bncfreq/lists/1_2_all_freq.txt
+http://ucrel.lancs.ac.uk/bncfreq/flists.html
+
+grep NoC 1_2_all_freq.txt | grep -v "\*" | cut -f 2 | grep -v "^Mr$" | grep -v " " | head -n 100 | { while read word; do echo "$word: " `ruby swype.rb grid.yaml "$word"`; done } > jagged_lengths.yaml
+
